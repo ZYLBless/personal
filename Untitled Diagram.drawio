@@ -1,9 +1,48 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" version="28.2.8">
-  <diagram name="Page-1" id="BtWzFBceQpt8J4g2CMHI">
-    <mxGraphModel>
+  <diagram name="Module Federation Architecture" id="BtWzFBceQpt8J4g2CMHI">
+    <mxGraphModel dx="1514" dy="696" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="bQjRJPH-pXrTKvn5nCwy-39" value="Host App (主应用)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F7FF;strokeColor=#1890FF;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="150" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="bQjRJPH-pXrTKvn5nCwy-40" value="加载 remoteEntry.js&#xa;import(&#39;remoteApp/Button&#39;)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#1890FF;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="250" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bQjRJPH-pXrTKvn5nCwy-41" value="Remote App (远程应用)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7E6;strokeColor=#FA8C16;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="150" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="bQjRJPH-pXrTKvn5nCwy-42" value="remoteEntry.js 暴露模块&#xa;exposes: { &#39;./Button&#39;: &#39;./src/Button&#39; }" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#FA8C16;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="500" y="250" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="bQjRJPH-pXrTKvn5nCwy-43" value="Shared Scope (共享依赖作用域)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FFED;strokeColor=#52C41A;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="410" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="bQjRJPH-pXrTKvn5nCwy-44" value="react, react-dom&#xa;singleton: true&#xa;requiredVersion: ^18.0.0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#52C41A;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="270" y="500" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="bQjRJPH-pXrTKvn5nCwy-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#1890FF;" edge="1" parent="1" source="bQjRJPH-pXrTKvn5nCwy-40" target="bQjRJPH-pXrTKvn5nCwy-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bQjRJPH-pXrTKvn5nCwy-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#52C41A;dashed=1;" edge="1" parent="1" source="bQjRJPH-pXrTKvn5nCwy-40" target="bQjRJPH-pXrTKvn5nCwy-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bQjRJPH-pXrTKvn5nCwy-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#52C41A;dashed=1;" edge="1" parent="1" source="bQjRJPH-pXrTKvn5nCwy-42" target="bQjRJPH-pXrTKvn5nCwy-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="bQjRJPH-pXrTKvn5nCwy-48" value="构建阶段 (Build Phase)" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="600" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bQjRJPH-pXrTKvn5nCwy-49" value="运行时阶段 (Runtime Phase)" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="100" y="370" width="600" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bQjRJPH-pXrTKvn5nCwy-50" value="动态加载模块" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#1890FF;rotation=0;" vertex="1" parent="1">
+          <mxGeometry x="315" y="275" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="bQjRJPH-pXrTKvn5nCwy-51" value="共享依赖检查 &amp; 复用" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontColor=#52C41A;" vertex="1" parent="1">
+          <mxGeometry x="310" y="320" width="180" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
